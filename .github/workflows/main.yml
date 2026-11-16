@@ -1,0 +1,56 @@
+name: CI
+
+on:
+    push:
+        branches: [master]
+    pull_request:
+        branches: [master]
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+
+permissions:
+    contents: read
+
+env:
+    PRIMARY_NODE_VERSION: 24
+
+jobs:
+    lint:
+        name: Lint
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v7
+
+            - name: Use Node.js ${{ env.PRIMARY_NODE_VERSION }}
+              uses: actions/setup-node@v4
+              with:
+                  node-version: ${{ env.PRIMARY_NODE_VERSION }}
+                  cache: npm
+
+            - name: Install
+              run: npm ci
+
+            - name: Lint
+              run: npm run lint
+
+    tests:
+        name: Tests
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v7
+
+            - name: Use Node.js ${{ env.PRIMARY_NODE_VERSION }}
+              uses: actions/setup-node@v4
+              with:
+                  node-version: ${{ env.PRIMARY_NODE_VERSION }}
+                  cache: npm
+
+            - name: Install
+              run: npm ci
+
+            - name: Tests
+              run: npm run test
