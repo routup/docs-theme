@@ -12,6 +12,10 @@ export type RtCodePanelProps = {
     title?: string;
     code?: string;
     tabs?: RtCodeTab[];
+    /**
+     * Index of the tab selected on first render. Only the initial value is
+     * read: later changes are ignored, the user's selection wins.
+     */
     active?: number;
 };
 
