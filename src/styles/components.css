@@ -394,13 +394,18 @@ a.rt-button.rt-button--ghost:hover {
     color: var(--rt-color-accent-400);
 }
 
+/* A long title truncates and never takes more than 40% of the row, so the
+ * tablist beside it keeps room for its (scrollable) tabs. */
 .rt-code-panel__file {
-    display: flex;
-    flex: none;
-    align-items: center;
+    flex: 0 1 auto;
+    align-self: center;
+    min-width: 0;
+    max-width: 40%;
     margin-left: auto;
     padding-right: 6px;
+    overflow: hidden;
     color: var(--rt-on-dark-faint);
+    text-overflow: ellipsis;
     white-space: nowrap;
 }
 

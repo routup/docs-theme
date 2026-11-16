@@ -95,6 +95,7 @@ function onKeydown(event: KeyboardEvent) {
                 v-if="title"
                 :id="`${id}-title`"
                 class="rt-code-panel__file"
+                :title="title"
             >{{ title }}</span>
         </div>
         <div
