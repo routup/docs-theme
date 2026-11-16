@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/routup/docs-theme/compare/v0.1.0...v0.1.1) (2026-11-16)
+
+
+### Features
+
+* ship compiled output built with tsdown ([#4](https://github.com/routup/docs-theme/issues/4)) ([a68ac5a](https://github.com/routup/docs-theme/commit/a68ac5a56ad2608355b49e7ab430efd50de264ba))
+
 ## 0.1.0 (2026-11-16)
 
 
