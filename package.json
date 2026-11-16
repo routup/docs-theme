@@ -5,25 +5,31 @@
     "description": "Shared VitePress theme for the routup documentation sites.",
     "exports": {
         "./package.json": "./package.json",
-        ".": "./src/index.ts",
-        "./config": {
-            "types": "./src/config.d.mts",
-            "import": "./src/config.mjs",
-            "default": "./src/config.mjs"
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js",
+            "default": "./dist/index.js"
         },
-        "./components/*": "./src/components/*",
-        "./style.css": "./src/styles/index.css"
+        "./config": {
+            "types": "./dist/config.d.ts",
+            "import": "./dist/config.js",
+            "default": "./dist/config.js"
+        },
+        "./style.css": "./dist/styles/index.css"
     },
     "files": [
-        "src/"
+        "dist/"
     ],
     "engines": {
         "node": ">=22.0.0"
     },
     "scripts": {
+        "build": "tsdown",
         "test": "vitest run --config ./test/vitest.config.ts",
+        "test:exports": "node ./test/exports.mjs",
         "lint": "eslint",
         "lint:fix": "npm run lint -- --fix",
+        "prepack": "npm run build",
         "prepare": "husky"
     },
     "author": {
@@ -68,10 +74,13 @@
         "eslint": "^10.14.0",
         "eslint-plugin-vue": "^10.12.0",
         "husky": "^9.1.7",
+        "tsdown": "^0.23.7",
         "typescript": "^6.0.3",
         "typescript-eslint": "^8.72.1",
+        "unplugin-vue": "^8.0.1",
         "vitepress": "^1.6.4",
         "vitest": "^5.1.0",
-        "vue": "^3.5.45"
+        "vue": "^3.5.45",
+        "vue-tsc": "^3.3.14"
     }
 }

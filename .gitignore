@@ -10,3 +10,4 @@ npm-debug.log*
 .temp
 .claude/settings.local.json
 .agents/plans
+dist

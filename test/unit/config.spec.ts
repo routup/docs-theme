@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { defineRoutupConfig } from '../../src/config.mjs';
+import { defineRoutupConfig } from '../../src/config';
 
 const THEME = '@routup/docs-theme';
 

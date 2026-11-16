@@ -1,19 +1,16 @@
-// Plain JavaScript: VitePress hands config imports from node_modules to Node,
-// which does not strip TypeScript there. Types live in config.d.mts.
 import { readFileSync } from 'node:fs';
+import type { DefaultTheme, UserConfig } from 'vitepress';
+import type { RoutupThemeConfig } from './types';
 
 const THEME_PACKAGE = '@routup/docs-theme';
 const THEME_COLOR = '#0b1020';
 
+// The build copies src/assets to dist/assets, so this path holds for both.
 const LOGO_SVG = readFileSync(new URL('./assets/logo.svg', import.meta.url), 'utf8');
 const LOGO_DATA_URI = `data:image/svg+xml,${encodeURIComponent(LOGO_SVG.trim())}`;
 
-/**
- * @param {unknown} value
- * @returns {unknown[]}
- */
-function withEntry(value) {
-    let list;
+function withEntry<T>(value: T | T[] | undefined): (T | string)[] {
+    let list: T[];
 
     if (value === undefined) {
         list = [];
@@ -23,14 +20,18 @@ function withEntry(value) {
         list = [value];
     }
 
-    return list.includes(THEME_PACKAGE) ? [...list] : [...list, THEME_PACKAGE];
+    return list.includes(THEME_PACKAGE as T) ? [...list] : [...list, THEME_PACKAGE];
 }
 
 /**
- * @param {import('vitepress').UserConfig} config
- * @returns {import('vitepress').UserConfig}
+ * Add what every routup docs site needs to a VitePress config: the theme in
+ * `vite.ssr.noExternal` and `vite.optimizeDeps.exclude`, plus `theme-color`
+ * and favicon head entries unless the config sets them. Nav, sidebar and
+ * titles are left to the site.
  */
-export function defineRoutupConfig(config) {
+export function defineRoutupConfig<
+    ThemeConfig extends DefaultTheme.Config & RoutupThemeConfig = DefaultTheme.Config & RoutupThemeConfig,
+>(config: UserConfig<ThemeConfig>): UserConfig<ThemeConfig> {
     const vite = config.vite ?? {};
     const ssr = vite.ssr ?? {};
     const optimizeDeps = vite.optimizeDeps ?? {};
