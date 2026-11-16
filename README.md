@@ -123,6 +123,24 @@ re-check of these:
 - **Overrides of VitePress's own styles** are unlayered and come last, since VitePress's component
   styles are unlayered too.
 
+## Development
+
+Requires Node.js 22 or later.
+
+```bash
+npm install    # install dependencies
+npm run lint   # ESLint
+npm test       # Vitest
+```
+
+There is no build step. To try a change in a site, run `npm pack` and install the tarball there:
+`./config` is loaded by Node from `node_modules`, so a linked checkout does not show every problem.
+
+## Release
+
+Releases are made by [release-please](https://github.com/googleapis/release-please) from
+Conventional Commits on `master`. Merging its release pull request publishes the package to npm.
+
 ## License
 
 Published under [MIT License](./LICENSE).
