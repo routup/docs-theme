@@ -32,7 +32,7 @@ jobs:
 
             - name: Use Node.js ${{ env.PRIMARY_NODE_VERSION }}
               if: steps.release.outputs.releases_created == 'true'
-              uses: actions/setup-node@v4
+              uses: actions/setup-node@v7
               with:
                   node-version: ${{ env.PRIMARY_NODE_VERSION }}
                   registry-url: 'https://registry.npmjs.org'
