@@ -12,6 +12,19 @@ import Layout from './Layout.vue';
 
 import './styles/index.css';
 
+export {
+    RtButton,
+    RtCard,
+    RtCodePanel,
+    RtHeading,
+    RtLogo,
+    RtMethodBadge,
+    RtSection,
+};
+export { default as RtFooter } from './components/RtFooter.vue';
+export { resolveFooter } from './footer';
+export { isExternalLink } from './links';
+export { clampTabIndex, moveTabIndex } from './tabs';
 export type {
     RoutupThemeConfig,
     RtFooterColumn,
