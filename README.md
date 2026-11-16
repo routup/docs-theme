@@ -108,7 +108,9 @@ re-check of these:
 
 - **Direction:** a dark hero, aurora band and footer (`#0b1020`) in both colour modes; violet
   `#8b5cf6`/`#7c3aed` to cyan `#06b6d4`/`#22d3ee`; HTTP method colours GET `#10b981`, POST `#f59e0b`,
-  PUT `#3b82f6`, PATCH `#8b5cf6`, DELETE `#ef4444`.
+  PUT `#3b82f6`, PATCH `#8b5cf6`, DELETE `#ef4444`. On light surfaces `RtMethodBadge` and the `RtHeading`
+  highlight switch to darker variants (`--rt-method-*-on-light`, `--rt-gradient-brand-on-light`) that
+  keep WCAG contrast; dark mode and the dark section surfaces keep the bright colours.
 - **Type:** Geist and Geist Mono, self-hosted through fontsource. No request to Google Fonts.
 - **Tokens:** plain CSS custom properties with the `--rt-*` prefix (`src/styles/tokens.css`), bridged to
   VitePress's `--vp-c-brand-*`, `--vp-button-brand-*` and `--vp-font-family-*`, and in dark mode also its

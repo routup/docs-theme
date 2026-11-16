@@ -41,6 +41,14 @@
     --rt-method-patch: #8b5cf6;
     --rt-method-delete: #ef4444;
 
+    /* Method colours for text on light surfaces: 4.5:1 or more over a 10%
+     * tint of themselves on the white, elevated and tinted backgrounds. */
+    --rt-method-get-on-light: #065f46;
+    --rt-method-post-on-light: #92400e;
+    --rt-method-put-on-light: #1d4ed8;
+    --rt-method-patch-on-light: #6d28d9;
+    --rt-method-delete-on-light: #b91c1c;
+
     --rt-surface-dark: #0b1020;
     --rt-surface-dark-elevated: #111830;
     --rt-on-dark: #e7eaf6;
@@ -50,6 +58,8 @@
     --rt-border-on-dark-strong: rgba(148, 163, 255, 0.24);
 
     --rt-gradient-brand: linear-gradient(90deg, var(--rt-color-primary-500), var(--rt-color-accent-500));
+    /* Both stops keep 3:1 or more (large text) on the white and tinted backgrounds. */
+    --rt-gradient-brand-on-light: linear-gradient(90deg, var(--rt-color-primary-600), var(--rt-color-accent-600));
 
     --rt-font-sans: 'Geist Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
     --rt-font-mono: 'Geist Mono Variable', ui-monospace, 'SF Mono', menlo, consolas, monospace;
@@ -106,4 +116,32 @@
     --vp-c-text-1: var(--rt-color-fg);
     --vp-c-text-2: var(--rt-color-fg-muted);
     --vp-c-text-3: var(--rt-on-dark-faint);
+}
+
+/*
+ * Text colours that depend on the surface below them (RtMethodBadge, the
+ * RtHeading highlight). The light page and its default and tinted sections
+ * get the on-light variants; dark mode and the surfaces that stay dark in
+ * both modes get the bright ones. Use --rt-method-* and --rt-gradient-brand
+ * directly only on a surface whose colour is known.
+ */
+:root {
+    --rt-text-method-get: var(--rt-method-get-on-light);
+    --rt-text-method-post: var(--rt-method-post-on-light);
+    --rt-text-method-put: var(--rt-method-put-on-light);
+    --rt-text-method-patch: var(--rt-method-patch-on-light);
+    --rt-text-method-delete: var(--rt-method-delete-on-light);
+    --rt-text-gradient-brand: var(--rt-gradient-brand-on-light);
+}
+
+.dark,
+.rt-section--dark,
+.rt-section--aurora,
+.rt-code-panel {
+    --rt-text-method-get: var(--rt-method-get);
+    --rt-text-method-post: var(--rt-method-post);
+    --rt-text-method-put: var(--rt-method-put);
+    --rt-text-method-patch: var(--rt-method-patch);
+    --rt-text-method-delete: var(--rt-method-delete);
+    --rt-text-gradient-brand: var(--rt-gradient-brand);
 }

@@ -176,7 +176,7 @@
 }
 
 .rt-heading .rt-heading__highlight {
-    background: var(--rt-gradient-brand);
+    background: var(--rt-text-gradient-brand);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
@@ -318,11 +318,11 @@ a.rt-button.rt-button--ghost:hover {
     letter-spacing: 0.05em;
 }
 
-.rt-method-badge--get { --rt-badge-color: var(--rt-method-get); }
-.rt-method-badge--post { --rt-badge-color: var(--rt-method-post); }
-.rt-method-badge--put { --rt-badge-color: var(--rt-method-put); }
-.rt-method-badge--patch { --rt-badge-color: var(--rt-method-patch); }
-.rt-method-badge--delete { --rt-badge-color: var(--rt-method-delete); }
+.rt-method-badge--get { --rt-badge-color: var(--rt-text-method-get); }
+.rt-method-badge--post { --rt-badge-color: var(--rt-text-method-post); }
+.rt-method-badge--put { --rt-badge-color: var(--rt-text-method-put); }
+.rt-method-badge--patch { --rt-badge-color: var(--rt-text-method-patch); }
+.rt-method-badge--delete { --rt-badge-color: var(--rt-text-method-delete); }
 
 /* ---------- RtCodePanel (dark in both colour modes) ---------- */
 .rt-code-panel {
