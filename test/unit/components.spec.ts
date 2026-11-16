@@ -148,6 +148,26 @@ describe('RtCodePanel', () => {
         expect(tablist).not.toContain('app.ts');
     });
 
+    it('names the tablist by the visible title', async () => {
+        const html = await render(RtCodePanel, {
+            title: 'app.ts',
+            tabs: [{ label: 'Install', code: 'npm install routup' }],
+        });
+
+        const labelledBy = html.match(/role="tablist"[^>]*aria-labelledby="([^"]+)"/)?.[1];
+
+        expect(labelledBy).toBeDefined();
+        expect(html).toMatch(new RegExp(`<span id="${labelledBy}"[^>]*>app\\.ts</span>`));
+        expect(html).not.toMatch(/role="tablist"[^>]*aria-label="/);
+    });
+
+    it('labels the tablist without a title', async () => {
+        const html = await render(RtCodePanel, { tabs: [{ label: 'Install', code: 'npm install routup' }] });
+
+        expect(html).toMatch(/role="tablist"[^>]*aria-label="Code examples"/);
+        expect(html).not.toMatch(/role="tablist"[^>]*aria-labelledby="/);
+    });
+
     it('makes the code focusable for keyboard scrolling', async () => {
         const html = await render(RtCodePanel, { code: 'a' });
 

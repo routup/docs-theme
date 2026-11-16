@@ -69,6 +69,8 @@ function onKeydown(event: KeyboardEvent) {
             <div
                 class="rt-code-panel__tablist"
                 role="tablist"
+                :aria-labelledby="title ? `${id}-title` : undefined"
+                :aria-label="title ? undefined : 'Code examples'"
                 @keydown="onKeydown"
             >
                 <button
@@ -91,6 +93,7 @@ function onKeydown(event: KeyboardEvent) {
             </div>
             <span
                 v-if="title"
+                :id="`${id}-title`"
                 class="rt-code-panel__file"
             >{{ title }}</span>
         </div>
