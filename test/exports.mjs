@@ -4,7 +4,6 @@
 // Run after `npm run build`.
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
-import { pathToFileURL } from 'node:url';
 
 const root = new URL('..', import.meta.url);
 const pkg = JSON.parse(readFileSync(new URL('package.json', root), 'utf8'));
@@ -37,7 +36,7 @@ for (const file of leaked) {
     console.error(`source file in the packed package: ${file}`);
 }
 
-const config = await import(pathToFileURL(new URL('dist/config.js', root).pathname).href);
+const config = await import(new URL('dist/config.js', root).href);
 
 if (typeof config.defineRoutupConfig !== 'function') {
     console.error('dist/config.js does not export defineRoutupConfig');
