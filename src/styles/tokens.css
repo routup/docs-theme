@@ -74,10 +74,11 @@
     --vp-c-brand-next: var(--rt-color-primary-500);
 
     --vp-button-brand-bg: var(--rt-color-primary-600);
-    --vp-button-brand-hover-bg: var(--rt-color-primary-500);
+    /* White text keeps 4.5:1 or more on 600 and 700; 500 drops to 4.23:1. */
+    --vp-button-brand-hover-bg: var(--rt-color-primary-700);
     --vp-button-brand-active-bg: var(--rt-color-primary-700);
     --vp-button-brand-border: var(--rt-color-primary-600);
-    --vp-button-brand-hover-border: var(--rt-color-primary-500);
+    --vp-button-brand-hover-border: var(--rt-color-primary-700);
     --vp-button-brand-active-border: var(--rt-color-primary-700);
 }
 

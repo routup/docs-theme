@@ -48,7 +48,7 @@ function tint(color: RGB, surface: RGB): RGB {
 
 const lightSurfaces = ['rt-color-bg', 'rt-color-bg-elevated', 'rt-color-bg-muted', 'rt-color-surface'];
 
-describe('contrast on light surfaces', () => {
+describe('token contrast', () => {
     it.each(['get', 'post', 'put', 'patch', 'delete'])('keeps the %s badge text at 4.5:1 or more', (method) => {
         const color = hex(token(`rt-method-${method}-on-light`));
 
@@ -68,6 +68,14 @@ describe('contrast on light surfaces', () => {
             for (const surface of lightSurfaces) {
                 expect(contrast(color, hex(token(surface)))).toBeGreaterThanOrEqual(3);
             }
+        }
+    });
+
+    it('keeps white button text at 4.5:1 or more in every button state', () => {
+        const text = hex(token('rt-color-on-primary'));
+
+        for (const state of ['vp-button-brand-bg', 'vp-button-brand-hover-bg', 'vp-button-brand-active-bg']) {
+            expect(contrast(text, hex(token(state)))).toBeGreaterThanOrEqual(4.5);
         }
     });
 });
