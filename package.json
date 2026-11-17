@@ -1,6 +1,6 @@
 {
     "name": "@routup/docs-theme",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "type": "module",
     "description": "Shared VitePress theme for the routup documentation sites.",
     "exports": {
