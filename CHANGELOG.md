@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2](https://github.com/routup/docs-theme/compare/v0.1.1...v0.1.2) (2026-11-17)
+
+
+### Bug Fixes
+
+* end the sidebar at the footer instead of covering it ([ca4b967](https://github.com/routup/docs-theme/commit/ca4b967ec6c1925ca4e21db49e96db65fc335462))
+
 ## [0.1.1](https://github.com/routup/docs-theme/compare/v0.1.0...v0.1.1) (2026-11-16)
 
 
