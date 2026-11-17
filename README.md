@@ -103,7 +103,8 @@ re-check of these:
 
 - the nav bar's `.VPNavBar.top` class at scroll position 0 (transparent nav on landing pages);
 - the `.VPLocalNav` element (hidden on landing pages);
-- the sidebar's z-index of 25 from 960px (`RtFooter` paints above it at 26);
+- the sidebar's z-index of 25 from 960px (`RtFooter` paints above it at 26) and its `bottom` offset
+  (`.VPSidebar` ends at the footer's top edge);
 - the `vitepress/theme-without-fonts` entry.
 
 ## Design decisions

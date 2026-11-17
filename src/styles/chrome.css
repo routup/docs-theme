@@ -24,6 +24,14 @@
     .rt-footer {
         z-index: 26;
     }
+
+    /* The sidebar ends where the footer begins, so the footer never hides
+     * sidebar entries (on a short page it is in view at once). Layout.vue
+     * keeps --rt-footer-visible at the footer's height inside the viewport.
+     * The element selector outranks VitePress's scoped `.VPSidebar` rule. */
+    .Layout > aside.VPSidebar {
+        bottom: var(--rt-footer-visible, 0px);
+    }
 }
 
 .rt-footer a {
