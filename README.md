@@ -1,10 +1,21 @@
-# @routup/docs-theme
+<div align="center">
 
-Shared VitePress theme for the routup documentation sites
-([routup.dev](https://routup.dev) and [plugins.routup.dev](https://plugins.routup.dev)).
+<a href="https://routup.dev"><img src=".github/assets/wordmark.svg" width="320" alt="Routup"></a>
 
-The package ships compiled ES modules, type declarations and CSS in `dist/`, built with
-[tsdown](https://tsdown.dev).
+<h1>@routup/docs-theme</h1>
+
+</div>
+
+[![npm version](https://img.shields.io/npm/v/@routup/docs-theme)](https://www.npmjs.com/package/@routup/docs-theme)
+[![CI](https://github.com/routup/docs-theme/actions/workflows/main.yml/badge.svg)](https://github.com/routup/docs-theme/actions/workflows/main.yml)
+
+**Shared VitePress theme for the routup documentation sites ([routup.dev](https://routup.dev) and [plugins.routup.dev](https://plugins.routup.dev)).**
+
+The package ships compiled ES modules, type declarations and CSS in `dist/`, built with [tsdown](https://tsdown.dev).
+
+[Installation](#installation) · [Usage](#usage) · [Components](#components) · [Landing pages](#landing-pages) · [Development](#development)
+
+---
 
 ## Installation
 
